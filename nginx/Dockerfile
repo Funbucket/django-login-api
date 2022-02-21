@@ -1,3 +1,11 @@
 FROM nginx:latest
 
-COPY ./default.conf /etc/nginx/conf.d/default.conf
+COPY ./nginx.conf /etc/nginx/nginx.conf
+COPY ./default.conf /etc/nginx/sites-available
+
+RUN mkdir -p /etc/nginx/sites-enabled/\
+    && ln -s /etc/nginx/sites-available/default.conf /etc/nginx/sites-enabled/
+
+#COPY ./default.conf /etc/nginx/conf.d/default.conf
+
+CMD ["nginx", "-g", "daemon off;"]
