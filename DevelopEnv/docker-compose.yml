@@ -1,0 +1,10 @@
+version: '3'
+services:
+  django:
+    build:
+      context: ../server_dev
+      dockerfile: Dockerfile.dev
+    container_name: django
+    volumes:
+      - ../server_dev:/srv/server_dev
+      - ./log:/var/log/uwsgi
