@@ -4,7 +4,6 @@ services:
     build:
       context: ../server_dev
       dockerfile: Dockerfile
-    container_name: django
     command: uwsgi --ini uwsgi.ini
     volumes:
       - ../server_dev:/srv/server_dev
@@ -14,7 +13,6 @@ services:
     restart: always
     build:
       context: ../nginx
-    container_name: nginx
     ports:
       - "80:80"
     depends_on:
