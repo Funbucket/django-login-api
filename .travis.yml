@@ -1,0 +1,12 @@
+language: generic
+
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker build -t ouchcs/django-test -f ./server_dev/Dockerfile.dev ./server_dev
+
+script:
+  - docker run -e CI=true ouchcs/django-test python3 manage.py test
