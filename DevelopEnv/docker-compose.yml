@@ -5,6 +5,7 @@ services:
       context: ../server_dev
       dockerfile: Dockerfile.dev
     container_name: django
+    ports:
+      - "8000:8000"
     volumes:
       - ../server_dev:/srv/server_dev
-      - ./log:/var/log/uwsgi
