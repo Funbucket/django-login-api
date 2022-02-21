@@ -4,7 +4,6 @@ services:
     build:
       context: ../server_dev
       dockerfile: Dockerfile.dev
-    container_name: django
     ports:
       - "8000:8000"
     volumes:
