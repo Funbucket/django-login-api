@@ -20,4 +20,5 @@ services:
     depends_on:
       - django
     volumes:
+      - ./server_dev:/srv/server_dev
       - ./log:/var/log/nginx
