@@ -20,3 +20,13 @@ services:
     volumes:
       - ../server_dev:/srv/server_dev
       - ./log:/var/log/nginx
+
+  mysql:
+	  build:
+		  context: ../mysql
+			ports:
+			  - "3306:3306"
+      volumes:
+        - ../mysql/data:/var/lib/mysql
+			environment:
+			  - MYSQL_ROOT_PASSWORD: admin123!
